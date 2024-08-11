@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { TimerReset } from "lucide-react";
+import { Button } from '@/components/ui/button';
+import { TimerReset } from 'lucide-react';
 
 type StopwatchResetButtonPresentationalProps = {
   onClick: () => void;

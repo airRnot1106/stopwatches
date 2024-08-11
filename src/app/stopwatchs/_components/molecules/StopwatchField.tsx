@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useStopwatch } from "react-timer-hook";
-import { StopwatchStartButton } from "../atoms/StopwatchStartButton";
-import { StopwatchResetButton } from "../atoms/StopwatchResetButton";
-import { StopwatchPauseButton } from "../atoms/StopwatchPauseButton";
+import { useStopwatch } from 'react-timer-hook';
+import { StopwatchPauseButton } from '../atoms/StopwatchPauseButton';
+import { StopwatchResetButton } from '../atoms/StopwatchResetButton';
+import { StopwatchStartButton } from '../atoms/StopwatchStartButton';
 
 type StopwatchFieldPresentationalProps = {
   hours: number;

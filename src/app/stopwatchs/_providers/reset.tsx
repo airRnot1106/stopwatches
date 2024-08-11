@@ -1,4 +1,4 @@
-import { createContext, type ReactNode, useRef } from "react";
+import { type ReactNode, createContext, useRef } from 'react';
 
 type ResetAllContextProps = {
   addResetFunction: (resetFn: () => void) => void;

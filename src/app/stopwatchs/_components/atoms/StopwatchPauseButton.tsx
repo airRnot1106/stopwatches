@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { CirclePause } from "lucide-react";
+import { Button } from '@/components/ui/button';
+import { CirclePause } from 'lucide-react';
 
 type StopwatchPauseButtonPresentationalProps = {
   onClick: () => void;

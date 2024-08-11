@@ -1,4 +1,4 @@
-import { StopwatchField } from "./_components/molecules/StopwatchField";
+import { StopwatchField } from './_components/molecules/StopwatchField';
 
 export default function Stopwatchs() {
   return (
