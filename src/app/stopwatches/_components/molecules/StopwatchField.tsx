@@ -1,7 +1,9 @@
 'use client';
 
 import { useStopwatch } from 'react-timer-hook';
+import type { Stopwatch } from '../../type';
 import { StopwatchPauseButton } from '../atoms/StopwatchPauseButton';
+import { StopwatchRemoveButton } from '../atoms/StopwatchRemoveButton';
 import { StopwatchResetButton } from '../atoms/StopwatchResetButton';
 import { StopwatchStartButton } from '../atoms/StopwatchStartButton';
 
@@ -12,6 +14,7 @@ type StopwatchFieldPresentationalProps = {
   start: () => void;
   pause: () => void;
   reset: () => void;
+  onRemove: () => void;
 };
 
 const StopwatchFieldPresentational = ({
@@ -21,29 +24,37 @@ const StopwatchFieldPresentational = ({
   start,
   pause,
   reset,
+  onRemove: handleRemove,
 }: StopwatchFieldPresentationalProps) => {
   return (
-    <div>
-      <div>
-        <span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
+    <div className="grid grid-cols-1 grid-rows-2 gap-4">
+      <div className="place-self-center text-6xl font-bold">
+        <span>{`${hours}`.padStart(2, '0')}</span>:
+        <span>{`${minutes}`.padStart(2, '0')}</span>:
+        <span>{`${seconds}`.padStart(2, '0')}</span>
       </div>
-      <div>
+      <div className="place-self-center space-x-2">
         <StopwatchStartButton onClick={start} />
         <StopwatchPauseButton onClick={pause} />
         <StopwatchResetButton onClick={reset} />
+        <StopwatchRemoveButton onClick={handleRemove} />
       </div>
     </div>
   );
 };
 
-export const StopwatchField = () => {
+type StopwatchFieldProps = {
+  id: Stopwatch['id'];
+  onRemove: (id: Stopwatch['id']) => void;
+};
+
+export const StopwatchField = ({ id, onRemove }: StopwatchFieldProps) => {
   const { hours, minutes, seconds, start, pause, reset } = useStopwatch({
     autoStart: false,
   });
 
-  const handleReset = () => {
-    reset();
-    pause();
+  const handleRemove = () => {
+    onRemove(id);
   };
 
   return (
@@ -53,7 +64,8 @@ export const StopwatchField = () => {
       seconds={seconds}
       start={start}
       pause={pause}
-      reset={handleReset}
+      reset={() => reset(new Date(), false)}
+      onRemove={handleRemove}
     />
   );
 };
