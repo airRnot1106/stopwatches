@@ -1,13 +1,9 @@
-import { StopwatchResetButton } from "./_components/atoms/StopwatchResetButton";
-import { StopwatchStartButton } from "./_components/atoms/StopwatchStartButton";
-import { StopwatchStopButton } from "./_components/atoms/StopwatchStopButton";
+import { StopwatchField } from "./_components/molecules/StopwatchField";
 
 export default function Stopwatchs() {
   return (
     <div>
-      <StopwatchStartButton />
-      <StopwatchStopButton />
-      <StopwatchResetButton />
+      <StopwatchField />
     </div>
   );
 }
