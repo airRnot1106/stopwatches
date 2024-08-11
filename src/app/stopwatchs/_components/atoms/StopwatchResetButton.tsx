@@ -1,15 +1,27 @@
 import { Button } from "@/components/ui/button";
 import { TimerReset } from "lucide-react";
 
-const StopwatchResetButtonPresentational = () => {
+type StopwatchResetButtonPresentationalProps = {
+  onClick: () => void;
+};
+
+const StopwatchResetButtonPresentational = ({
+  onClick: handleClick,
+}: StopwatchResetButtonPresentationalProps) => {
   return (
-    <Button className="space-x-1">
+    <Button className="space-x-1" onClick={handleClick}>
       <TimerReset />
       <p>Reset</p>
     </Button>
   );
 };
 
-export const StopwatchResetButton = () => {
-  return <StopwatchResetButtonPresentational />;
+type StopwatchResetButtonProps = {
+  onClick: () => void;
+};
+
+export const StopwatchResetButton = ({
+  onClick: handleClick,
+}: StopwatchResetButtonProps) => {
+  return <StopwatchResetButtonPresentational onClick={handleClick} />;
 };

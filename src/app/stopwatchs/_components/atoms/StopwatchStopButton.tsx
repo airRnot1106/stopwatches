@@ -1,15 +1,27 @@
 import { Button } from "@/components/ui/button";
 import { CirclePause } from "lucide-react";
 
-const StopwatchStopButtonPresentational = () => {
+type StopwatchStopButtonPresentationalProps = {
+  onClick: () => void;
+};
+
+const StopwatchStopButtonPresentational = ({
+  onClick: handleClick,
+}: StopwatchStopButtonPresentationalProps) => {
   return (
-    <Button className="space-x-1">
+    <Button className="space-x-1" onClick={handleClick}>
       <CirclePause />
       <p>Stop</p>
     </Button>
   );
 };
 
-export const StopwatchStopButton = () => {
-  return <StopwatchStopButtonPresentational />;
+type StopwatchStopButtonProps = {
+  onClick: () => void;
+};
+
+export const StopwatchStopButton = ({
+  onClick: handleClick,
+}: StopwatchStopButtonProps) => {
+  return <StopwatchStopButtonPresentational onClick={handleClick} />;
 };
